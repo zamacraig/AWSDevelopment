@@ -1,0 +1,4 @@
+template-file-path: ./create-vpc-stack.yaml
+tags:
+Name: 'gitsync'
+Project: 'Demo'
