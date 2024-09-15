@@ -7,3 +7,5 @@ const app = new cdk.App();
 new CdkCicdTypescriptStack(app, 'CdkCicdTypescriptStack', {
 
 });
+
+app.synth();
