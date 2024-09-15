@@ -10,7 +10,7 @@ namespace CdkCicd
     {
         internal CdkCicdStack(Construct scope, string id, IStackProps props = null) : base(scope, id, props)
         {
-            var repository = Repository.FromRepositoryName(this, "repository", "<CODECOMMIT-REPOSITORY-NAME>");
+            //var repository = Repository.FromRepositoryName(this, "repository", "<CODECOMMIT-REPOSITORY-NAME>");
     
             // This construct creates a pipeline with 3 stages: Source, Build, and UpdatePipeline
             var pipeline = new CodePipeline(this, "pipeline", new CodePipelineProps
@@ -26,7 +26,7 @@ namespace CdkCicd
                     Input = CodePipelineSource.Connection(
                         "zamacraig/AWSDevelopment",
                         "main",
-                        new ConnectionSourceOptions { ConnectionArn = "arn:aws:codestar-connections:us-east-1:224412153406:user/zamacraig_admin" }
+                        new ConnectionSourceOptions { ConnectionArn = "arn:aws:codeconnections:us-east-1:224412153406:connection/d5f5c5ac-9840-4709-8f08-c2b4c707352b" }
                         ),
     
                     // Commands to run to generate CDK Cloud Assembly
