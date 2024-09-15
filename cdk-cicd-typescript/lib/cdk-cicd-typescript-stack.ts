@@ -23,6 +23,10 @@ export class CdkCicdTypescriptStack extends cdk.Stack {
       })
     })
 
+    const devStage = pipeline.addStage(new PipelineStage(this, 'PipelineStage', {
+      stageName: 'test-CloudFormationStack'
+    }))
+
     const testStage = pipeline.addStage(new PipelineStage(this, 'PipelineStage', {
       stageName: 'test-LambdaStack'
     }))
