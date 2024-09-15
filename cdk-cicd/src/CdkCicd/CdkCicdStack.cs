@@ -24,7 +24,7 @@ namespace CdkCicd
                 {
                     // The files downloaded from the repository will be placed in the working directory when the script is executed
                     Input = CodePipelineSource.Connection(
-                        "AWSDevelopment",
+                        "zamacraig/AWSDevelopment",
                         "main",
                         new ConnectionSourceOptions { ConnectionArn = "arn:aws:codeconnections:us-east-1:224412153406:connection/d5f5c5ac-9840-4709-8f08-c2b4c707352b" }
                         ),
