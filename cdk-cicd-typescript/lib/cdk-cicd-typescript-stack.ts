@@ -4,12 +4,13 @@ import { CodePipeline } from 'aws-cdk-lib/aws-events-targets';
 import { CodePipelineSource, ShellStep } from 'aws-cdk-lib/pipelines';
 import { Construct } from 'constructs';
 import { pipeline } from 'stream/promises';
+import { PipelineStage } from './PipelineStage';
 
 export class CdkCicdTypescriptStack extends cdk.Stack {
   constructor(scope: Construct, id: string, props?: cdk.StackProps) {
     super(scope, id, props);
 
-    new cdk.pipelines.CodePipeline(this, 'Pipeline', {
+    const pipeline = new cdk.pipelines.CodePipeline(this, 'Pipeline', {
       pipelineName: 'AwesomePipeline',
       synth: new ShellStep('Synth', {
         input: CodePipelineSource.gitHub('zamacraig/AWSDevelopment', 'cicd-practice'),
@@ -21,6 +22,10 @@ export class CdkCicdTypescriptStack extends cdk.Stack {
         primaryOutputDirectory: 'cdk-cicd-typescript/cdk.out'
       })
     })
+
+    const testStage = pipeline.addStage(new PipelineStage(this, 'PipelineStage', {
+      stageName: 'test'
+    }))
 
   }
 }
