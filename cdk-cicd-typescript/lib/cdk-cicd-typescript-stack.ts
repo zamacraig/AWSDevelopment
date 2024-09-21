@@ -10,8 +10,8 @@ export class CdkCicdTypescriptStack extends cdk.Stack {
   constructor(scope: Construct, id: string, props?: cdk.StackProps) {
     super(scope, id, props);
 
-    const pipeline = new cdk.pipelines.CodePipeline(this, 'AwesomePipeline', {
-      pipelineName: 'AwesomePipeline',
+    const pipeline = new cdk.pipelines.CodePipeline(this, 'GithubPipeline', {
+      pipelineName: 'GithubPipeline',
       synth: new ShellStep('Synth', {
         input: CodePipelineSource.gitHub('zamacraig/AWSDevelopment', 'cicd-practice'),
         commands: [
